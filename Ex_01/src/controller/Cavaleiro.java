@@ -6,7 +6,7 @@ public class Cavaleiro extends Thread {
 	int id;
 	int speedBoost = 0;
 	int actualDistance = 0;
-	int maxDistance = 100; //2000
+	int maxDistance = 2000; //2000
 	int door = -1;
 	
 	public Cavaleiro(int id){
@@ -37,8 +37,10 @@ public class Cavaleiro extends Thread {
 	
 	
 	public boolean checkDistance(){
-		if(actualDistance > 50 && Main.boost.getTorch()){
-			speedBoost = 2;
+		if(actualDistance > 500 && Main.torch.getTorch()){
+			speedBoost += 2;
+		}else if(actualDistance > 1500 && Main.stone.getStone()){
+			speedBoost += 2;
 		}else if(door == -1 && actualDistance > maxDistance) {
 			door = Main.door.getDoor();
 			maxDistance = (int)(Math.random() * 51-5)+25;

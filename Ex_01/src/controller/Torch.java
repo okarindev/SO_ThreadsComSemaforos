@@ -1,6 +1,6 @@
 package controller;
 
-public class Boost {
+public class Torch {
 
 	private int qtd = 1;
 	
